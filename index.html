@@ -27,13 +27,10 @@
 		</div>
 	</div>
 </div> <!-- End Grid -->
-<script type="text/javascript">
-	$( document ).ready(function() {
+<script>
+	$(function() {
     $("button").on('click', function(){
-    	var id = $(this).attr("id");
-    	console.log(id);
-    	$("html").css("background-color", id);
-    	
+    	$("html").css("background-color", $(this).attr("id"));	
     });
 });
 </script>
