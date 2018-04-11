@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- META -->
+    <title>colors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/kickstart.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/kickstart.js"></script>
+</head>
+<body>
+<div class="grid a">
+    <div class="col_12" style="margin-top:100px;">
+        <div class="center">
+            <button class="small add">click</button>
+            <button class="small get">get</button>
+        </div>
+    </div>
+    <div class="here center">
+    </div>
+</div>
+<script>
+    $(function() {
+        var text = "";
+        var copy = $("<input class='test' type='text'>");
+        // $(".test").hide();
+        $(".add").click(function(){
+            copy.clone().appendTo(".a");
+        });
+
+        $(".get").on('click', function () {
+            $(".test").each(function () {
+                text += $(this).val();
+                // console.log($(this).val());
+            });
+            $(".here").append(text +' ');
+        });
+    });
+</script>
+</body>
+</html>

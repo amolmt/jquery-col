@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- META -->
+    <title>colors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="center" style="margin-top:100px;">
+    <input class="val1">
+    <br>
+    <br>
+    <input class="val2">
+    <br>
+    <br>
+    <!-- Select -->
+    <label for="select1">Operation</label>
+    <select class="operation" id="select1">
+        <option value="0">-- Choose --</option>
+        <option value="1">add</option>
+        <option value="2">subtract</option>
+        <option value="3">multiply</option>
+        <option value="3">divide</option>
+    </select>
+    <br>
+    <br>
+    <button class="small cal">calculate</button>
+</div>
+<div>
+    <p class="result"><b>Result: </b></p>
+</div>
+</body>
+<script>
+    $(function () {
+       $(".cal").on('click', function () {
+          // console.log('clicked!');
+           var val1 = $('.val1').val();
+           var val2 = $('.val2').val();
+           var op = $('.operation').val();
+           // console.log(val1);
+           // console.log(val2);
+           // console.log(op);
+           $.ajax({
+              url: 'cal.php',
+               type: 'POST',
+              data: {
+                  val1: val1,
+                  val2: val2,
+                  op: op
+              },
+               success: function (res) {
+                   $('.result').append(res);
+                   $('input').val('');
+                   $('.operation').val('choose');
+               },
+               error: function (err) {
+                   console.log(err);
+               }
+
+           });
+       });
+    });
+</script>
+</html>
