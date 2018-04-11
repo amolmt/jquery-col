@@ -20,17 +20,18 @@
 <div class="grid">
 	<div class="col_12" style="margin-top:100px;">
 		<div class="center">
-			<button class="small" id="red">red</button>
-			<button class="small" id="green">green</button>
-			<button class="small" id="yellow">yellow</button>
-			<button class="small" id="magenta">magenta</button>
+			<!--<button class="small" data-value="red">red</button>-->
+			<!--<button class="small" data-value="green">green</button>-->
+			<!--<button class="small" data-value="yellow">yellow</button>-->
+			<!--<button class="small" data-value="magenta">magenta</button>-->
+            <input class="test" type="text">
 		</div>
 	</div>
-</div> <!-- End Grid -->
+</div>
 <script>
 	$(function() {
-    $("button").on('click', function(){
-    	$("html").css("background-color", $(this).attr("id"));	
+    $(".test").keyup(function(){
+    	  $("html").css("background-color", $(this).val());
     });
 });
 </script>
